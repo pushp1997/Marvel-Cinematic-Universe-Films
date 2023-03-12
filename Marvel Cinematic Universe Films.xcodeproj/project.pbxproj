@@ -16,6 +16,7 @@
 		B685354529A7CC9500A82D4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B685354329A7CC9500A82D4C /* Main.storyboard */; };
 		B685354729A7CC9600A82D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B685354629A7CC9600A82D4C /* Assets.xcassets */; };
 		B685354A29A7CC9600A82D4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B685354829A7CC9600A82D4C /* LaunchScreen.storyboard */; };
+		DD1ECD9B29BE2BFA0079CEC0 /* MoviesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1ECD9A29BE2BFA0079CEC0 /* MoviesParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B685354629A7CC9600A82D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B685354929A7CC9600A82D4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B685354B29A7CC9600A82D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD1ECD9A29BE2BFA0079CEC0 /* MoviesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				B685353D29A7CC9500A82D4C /* AppDelegate.swift */,
 				B674F87229A7EF8400AB15F3 /* Movie.swift */,
+				DD1ECD9A29BE2BFA0079CEC0 /* MoviesParser.swift */,
 				B685353F29A7CC9500A82D4C /* SceneDelegate.swift */,
 				B685354329A7CC9500A82D4C /* Main.storyboard */,
 				B674F87029A7EDF800AB15F3 /* MovieViewController.swift */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B674F87529A8068100AB15F3 /* MoreDetailsViewController.swift in Sources */,
+				DD1ECD9B29BE2BFA0079CEC0 /* MoviesParser.swift in Sources */,
 				B674F86F29A7E3F800AB15F3 /* MCUMovieListTableViewController.swift in Sources */,
 				B674F87129A7EDF800AB15F3 /* MovieViewController.swift in Sources */,
 				B674F87329A7EF8400AB15F3 /* Movie.swift in Sources */,
