@@ -10,12 +10,23 @@ import UIKit
 class MovieViewController: UIViewController {
     
     var movieData: Movie!
-
+    
+    // Outlets
+    @IBOutlet weak var coverUIImageView: UIImageView!
+    @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var phaseOutlet: UILabel!
+    @IBOutlet weak var sagaOutlet: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         title = movieData.title
+        
+        coverUIImageView.image = UIImage(named: movieData.cover)
+        releaseDateLabel.text = movieData.releaseDate
+        phaseOutlet.text = movieData.phase
+        sagaOutlet.text = movieData.saga
     }
     
 

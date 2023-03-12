@@ -13,7 +13,7 @@ class Movie {
     var boxOffice: String
     var duration: String
     var overview: String
-    var cover: URL
+    var cover: String
     var trailerUrl: URL
     var directedBy: String
     var phase: String
@@ -22,7 +22,7 @@ class Movie {
     var postCreditScenes: String
     var imdbId: String
     
-    init(title: String, releaseDate: String, boxOffice: String, duration: String, overview: String, cover: URL, trailerUrl: URL, directedBy: String, phase: String, saga: String, chronology: String, postCreditScenes: String, imdbId: String) {
+    init(title: String, releaseDate: String, boxOffice: String, duration: String, overview: String, cover: String, trailerUrl: URL, directedBy: String, phase: String, saga: String, chronology: String, postCreditScenes: String, imdbId: String) {
         self.title = title
         self.releaseDate = releaseDate
         self.boxOffice = boxOffice

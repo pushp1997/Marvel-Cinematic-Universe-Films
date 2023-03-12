@@ -10,12 +10,31 @@ import UIKit
 class MoreDetailsViewController: UIViewController {
     
     var movieData: Movie!
-
+    
+    // Outlets
+    @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var phaseLabel: UILabel!
+    @IBOutlet weak var sagaLabel: UILabel!
+    @IBOutlet weak var boxOfficeLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var directedByLabel: UILabel!
+    @IBOutlet weak var postCreditScenesLabel: UILabel!
+    @IBOutlet weak var overviewTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         title = "Details: " + movieData.title
+        
+        releaseDateLabel.text = movieData.releaseDate
+        phaseLabel.text = movieData.phase
+        sagaLabel.text = movieData.saga
+        boxOfficeLabel.text = movieData.boxOffice
+        durationLabel.text = movieData.duration
+        directedByLabel.text = movieData.directedBy
+        postCreditScenesLabel.text = movieData.postCreditScenes
+        overviewTextView.text = movieData.overview
     }
     
 

@@ -143,7 +143,7 @@ class MoviesParser: NSObject, XMLParserDelegate {
                 boxOffice: currentBoxOffice,
                 duration: currentDuration,
                 overview: currentOverview,
-                cover: URL(string: currentCover)!,
+                cover: currentCover,
                 trailerUrl: URL(string: currentTrailerUrl)!,
                 directedBy: currentDirectedBy,
                 phase: currentPhase,

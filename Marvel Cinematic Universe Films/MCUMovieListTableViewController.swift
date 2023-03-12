@@ -9,6 +9,8 @@ import UIKit
 
 class MCUMovieListTableViewController: UITableViewController {
     var moviesParser = MoviesParser()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class MCUMovieListTableViewController: UITableViewController {
         let movieData = moviesParser.getMovie(index: indexPath.row)
         cell.textLabel?.text = movieData.title
         cell.detailTextLabel?.text = movieData.saga
-//        cell.imageView?.image = UIImage(named: movieData.coverUrl)
+        cell.imageView?.image = UIImage(named: movieData.cover)
 
         return cell
     }
