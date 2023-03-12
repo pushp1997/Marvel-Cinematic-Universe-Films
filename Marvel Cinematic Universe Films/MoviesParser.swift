@@ -35,19 +35,19 @@ class MoviesParser: NSObject, XMLParserDelegate {
             currentOverview = currentOverview.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
-    private var currentCoverUrl: String = "" {
+    private var currentCover: String = "" {
         didSet {
-            currentCoverUrl = currentCoverUrl.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            currentCover = currentCover.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
-    private var currentTrailer_url: String = "" {
+    private var currentTrailerUrl: String = "" {
         didSet {
-            currentTrailer_url = currentTrailer_url.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            currentTrailerUrl = currentTrailerUrl.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
-    private var currentDirected_by: String = "" {
+    private var currentDirectedBy: String = "" {
         didSet {
-            currentDirected_by = currentDirected_by.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            currentDirectedBy = currentDirectedBy.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
     private var currentPhase: String = "" {
@@ -65,28 +65,30 @@ class MoviesParser: NSObject, XMLParserDelegate {
             currentChronology = currentChronology.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
-    private var currentPost_credit_scenes: String = "" {
+    private var currentPostCreditScenes: String = "" {
         didSet {
-            currentPost_credit_scenes = currentPost_credit_scenes.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            currentPostCreditScenes = currentPostCreditScenes.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
-    private var currentImdb_id: String = "" {
+    private var currentImdbId: String = "" {
         didSet {
-            currentImdb_id = currentImdb_id.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+            currentImdbId = currentImdbId.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
 
     
-    private var parserCompletionHandler: (([Movie]) -> Void)?
-    
-    func parseFeed(url: String, completionHandler: (([Movie]) -> Void)?) -> Void {
-        self.parserCompletionHandler = completionHandler
-        
+    func parseMovies() {
         // parse xml data
-        let xmlFilePath = Bundle.main.path(forResource: "mcu-movies-list", ofType: "xml")!
-        let parser = XMLParser(contentsOf: URL(string:xmlFilePath)!)
-        parser!.delegate = self
-        parser!.parse()
+        if let xmlFilePath = Bundle.main.path(forResource: "mcu-movies-list", ofType: "xml") {
+            do {
+                let data = try Data(contentsOf: URL(filePath: xmlFilePath))
+                let parser = XMLParser(data: data)
+                parser.delegate = self
+                parser.parse()
+            } catch {
+                // Handle error here
+            }
+        }
     }
     
     // MARK: - XML Parser Delegate
@@ -101,14 +103,14 @@ class MoviesParser: NSObject, XMLParserDelegate {
             currentBoxOffice = ""
             currentDuration = ""
             currentOverview = ""
-            currentCoverUrl = ""
-            currentTrailer_url = ""
-            currentDirected_by = ""
+            currentCover = ""
+            currentTrailerUrl = ""
+            currentDirectedBy = ""
             currentPhase = ""
             currentSaga = ""
             currentChronology = ""
-            currentPost_credit_scenes = ""
-            currentImdb_id = ""
+            currentPostCreditScenes = ""
+            currentImdbId = ""
         }
     }
     
@@ -116,18 +118,18 @@ class MoviesParser: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         switch currentElement {
             case "title": currentTitle += string
-            case "releaseDate": currentReleaseDate += string
-            case "boxOffice": currentBoxOffice += string
+            case "release_date": currentReleaseDate += string
+            case "box_office": currentBoxOffice += string
             case "duration": currentDuration += string
             case "overview": currentOverview += string
-            case "coverUrl": currentCoverUrl += string
-            case "trailer_url": currentTrailer_url += string
-            case "directed_by": currentDirected_by += string
+            case "cover": currentCover += string
+            case "trailer_url": currentTrailerUrl += string
+            case "directed_by": currentDirectedBy += string
             case "phase": currentPhase += string
             case "saga": currentSaga += string
             case "chronology": currentChronology += string
-            case "post_credit_scenes": currentPost_credit_scenes += string
-            case "imdb_id": currentImdb_id += string
+            case "post_credit_scenes": currentPostCreditScenes += string
+            case "imdb_id": currentImdbId += string
             default: break
         }
     }
@@ -138,19 +140,41 @@ class MoviesParser: NSObject, XMLParserDelegate {
             let movie = Movie(
                 title: currentTitle,
                 releaseDate: currentReleaseDate,
-                boxOffice: Int64(currentBoxOffice)!,
-                duration: Int(currentDuration)!,
+                boxOffice: currentBoxOffice,
+                duration: currentDuration,
                 overview: currentOverview,
-                coverUrl: URL(string: currentCoverUrl)!,
-                trailer_url: URL(string: currentTrailer_url)!,
-                directed_by: currentDirected_by,
-                phase: Int(currentPhase)!,
+                cover: URL(string: currentCover)!,
+                trailerUrl: URL(string: currentTrailerUrl)!,
+                directedBy: currentDirectedBy,
+                phase: currentPhase,
                 saga: currentSaga,
-                chronology: Int(currentChronology)!,
-                post_credit_scenes: Int(currentPost_credit_scenes)!,
-                imdb_id: currentImdb_id
+                chronology: currentChronology,
+                postCreditScenes: currentPostCreditScenes,
+                imdbId: currentImdbId
             )
             movies += [movie]
         }
+    }
+    
+    // MARK: - Helper methods
+    
+    func getMovie(index:Int) -> Movie{
+        return movies[index]
+    }
+    
+    func getCount() -> Int{
+        return movies.count
+    }
+    
+    func getTitles() -> [String]{
+        // make an empty array
+        var titles = [String]()
+        
+        // traverse the people data and place their names in array
+        for movieData in movies{
+            titles.append(movieData.title)
+        }
+        
+        return titles
     }
 }

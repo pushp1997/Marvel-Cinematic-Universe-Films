@@ -10,31 +10,31 @@ import Foundation
 class Movie {
     var title: String
     var releaseDate: String
-    var boxOffice: Int64
-    var duration: Int
+    var boxOffice: String
+    var duration: String
     var overview: String
-    var coverUrl: URL
-    var trailer_url: URL
-    var directed_by: String
-    var phase: Int
+    var cover: URL
+    var trailerUrl: URL
+    var directedBy: String
+    var phase: String
     var saga: String
-    var chronology: Int
-    var post_credit_scenes: Int
-    var imdb_id: String
+    var chronology: String
+    var postCreditScenes: String
+    var imdbId: String
     
-    init(title: String, releaseDate: String, boxOffice: Int64, duration: Int, overview: String, coverUrl: URL, trailer_url: URL, directed_by: String, phase: Int, saga: String, chronology: Int, post_credit_scenes: Int, imdb_id: String) {
+    init(title: String, releaseDate: String, boxOffice: String, duration: String, overview: String, cover: URL, trailerUrl: URL, directedBy: String, phase: String, saga: String, chronology: String, postCreditScenes: String, imdbId: String) {
         self.title = title
         self.releaseDate = releaseDate
         self.boxOffice = boxOffice
         self.duration = duration
         self.overview = overview
-        self.coverUrl = coverUrl
-        self.trailer_url = trailer_url
-        self.directed_by = directed_by
+        self.cover = cover
+        self.trailerUrl = trailerUrl
+        self.directedBy = directedBy
         self.phase = phase
         self.saga = saga
         self.chronology = chronology
-        self.post_credit_scenes = post_credit_scenes
-        self.imdb_id = imdb_id
+        self.postCreditScenes = postCreditScenes
+        self.imdbId = imdbId
     }
 }
