@@ -12,19 +12,42 @@
         <scene sceneID="cvN-Bh-JhK">
             <objects>
                 <tableViewController id="oXd-KO-0kf" customClass="MCUMovieListTableViewController" customModule="Marvel_Cinematic_Universe_Films" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="i7A-nU-HAq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="210" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="i7A-nU-HAq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="mMZ-Po-X3s">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="210" id="mMZ-Po-X3s" customClass="CustomTableViewCell" customModule="Marvel_Cinematic_Universe_Films" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="210"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mMZ-Po-X3s" id="S6I-NF-h9F">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mMZ-Po-X3s" id="S6I-NF-h9F">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="210"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Xv-aE-fML">
+                                            <rect key="frame" x="134" y="10" width="125" height="160"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="125" id="kpp-6V-fMy"/>
+                                                <constraint firstAttribute="height" constant="160" id="lM1-od-qg7"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqc-lc-BJG">
+                                            <rect key="frame" x="174.66666666666666" y="178" width="43.666666666666657" height="21.666666666666657"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="oqc-lc-BJG" firstAttribute="top" secondItem="4Xv-aE-fML" secondAttribute="bottom" constant="8" id="G1U-NJ-9Lw"/>
+                                        <constraint firstItem="oqc-lc-BJG" firstAttribute="centerX" secondItem="S6I-NF-h9F" secondAttribute="centerX" id="YRb-Ba-SB5"/>
+                                        <constraint firstItem="4Xv-aE-fML" firstAttribute="top" secondItem="S6I-NF-h9F" secondAttribute="top" constant="10" id="j9Y-gc-lL5"/>
+                                        <constraint firstItem="4Xv-aE-fML" firstAttribute="centerX" secondItem="S6I-NF-h9F" secondAttribute="centerX" id="soV-mM-WrT"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="coverImageView" destination="4Xv-aE-fML" id="29J-VV-R9X"/>
+                                    <outlet property="title" destination="oqc-lc-BJG" id="gbj-XR-ha0"/>
                                     <segue destination="ooo-Xu-rA7" kind="show" identifier="toMovie" id="z9m-MP-CWs"/>
                                 </connections>
                             </tableViewCell>
@@ -38,7 +61,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfu-Eu-emP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="13"/>
+            <point key="canvasLocation" x="90.839694656488547" y="12.67605633802817"/>
         </scene>
         <!--Movie View Controller-->
         <scene sceneID="rjb-r5-uGV">
@@ -144,7 +167,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Read More on IMDB"/>
                                         <connections>
-                                            <segue destination="EcS-uP-04M" kind="show" id="Ckj-Th-dHf"/>
+                                            <segue destination="EcS-uP-04M" kind="show" identifier="toIMDB" id="Ckj-Th-dHf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgP-7P-WYX">
@@ -153,7 +176,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Watch Trailer"/>
                                         <connections>
-                                            <segue destination="EcS-uP-04M" kind="show" id="Jxd-gS-9gi"/>
+                                            <segue destination="EcS-uP-04M" kind="show" identifier="toTrailer" id="Jxd-gS-9gi"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDT-Pv-Abn">
@@ -294,10 +317,10 @@
             </objects>
             <point key="canvasLocation" x="1594.6564885496182" y="12.67605633802817"/>
         </scene>
-        <!--View Controller-->
+        <!--Web ViewUI View Controller-->
         <scene sceneID="9BI-2k-uVG">
             <objects>
-                <viewController id="EcS-uP-04M" sceneMemberID="viewController">
+                <viewController id="EcS-uP-04M" customClass="WebViewUIViewController" customModule="Marvel_Cinematic_Universe_Films" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ybv-DR-OpQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,6 +339,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="wlQ-sI-Pel"/>
+                    <connections>
+                        <outlet property="wkWebView" destination="em5-7W-s9R" id="pR3-hP-4aZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ljN-dE-SH6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

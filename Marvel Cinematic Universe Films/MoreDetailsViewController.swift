@@ -38,14 +38,26 @@ class MoreDetailsViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toTrailer"{
+            // Get the new view controller using segue.destination.
+            let destinationController = segue.destination as! WebViewUIViewController
+            
+            // Pass the selected object to the new view controller.
+            destinationController.link = movieData.trailerUrl
+            destinationController.title = "Trailer: \(movieData.title)"
+        }
+        if segue.identifier == "toIMDB"{
+            // Get the new view controller using segue.destination.
+            let destinationController = segue.destination as! WebViewUIViewController
+            
+            // Pass the selected object to the new view controller.
+            destinationController.link = URL(string: "https://www.imdb.com/title/\(movieData.imdbId)/")!
+            destinationController.title = "IMDB: \(movieData.title)"
+        }
     }
-    */
 
 }

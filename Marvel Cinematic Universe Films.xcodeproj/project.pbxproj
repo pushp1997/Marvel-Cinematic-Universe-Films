@@ -18,6 +18,8 @@
 		B685354A29A7CC9600A82D4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B685354829A7CC9600A82D4C /* LaunchScreen.storyboard */; };
 		DD1ECD9B29BE2BFA0079CEC0 /* MoviesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1ECD9A29BE2BFA0079CEC0 /* MoviesParser.swift */; };
 		DDB12FF229BE52DC00297FFF /* mcu-movies-list.xml in Resources */ = {isa = PBXBuildFile; fileRef = DDB12FF129BE52DC00297FFF /* mcu-movies-list.xml */; };
+		DDBEAFE429C0BC3F0023CBF0 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBEAFE329C0BC3F0023CBF0 /* CustomTableViewCell.swift */; };
+		DDBEAFE629C0D06A0023CBF0 /* WebViewUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBEAFE529C0D06A0023CBF0 /* WebViewUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		B685354B29A7CC9600A82D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1ECD9A29BE2BFA0079CEC0 /* MoviesParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesParser.swift; sourceTree = "<group>"; };
 		DDB12FF129BE52DC00297FFF /* mcu-movies-list.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "mcu-movies-list.xml"; sourceTree = "<group>"; };
+		DDBEAFE329C0BC3F0023CBF0 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		DDBEAFE529C0D06A0023CBF0 /* WebViewUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewUIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 			children = (
 				B685353D29A7CC9500A82D4C /* AppDelegate.swift */,
 				B674F87229A7EF8400AB15F3 /* Movie.swift */,
+				DDBEAFE529C0D06A0023CBF0 /* WebViewUIViewController.swift */,
 				DD1ECD9A29BE2BFA0079CEC0 /* MoviesParser.swift */,
 				B685353F29A7CC9500A82D4C /* SceneDelegate.swift */,
 				B685354329A7CC9500A82D4C /* Main.storyboard */,
@@ -78,6 +83,7 @@
 				B685354829A7CC9600A82D4C /* LaunchScreen.storyboard */,
 				B685354B29A7CC9600A82D4C /* Info.plist */,
 				DDB12FF129BE52DC00297FFF /* mcu-movies-list.xml */,
+				DDBEAFE329C0BC3F0023CBF0 /* CustomTableViewCell.swift */,
 			);
 			path = "Marvel Cinematic Universe Films";
 			sourceTree = "<group>";
@@ -156,10 +162,12 @@
 			files = (
 				B674F87529A8068100AB15F3 /* MoreDetailsViewController.swift in Sources */,
 				DD1ECD9B29BE2BFA0079CEC0 /* MoviesParser.swift in Sources */,
+				DDBEAFE429C0BC3F0023CBF0 /* CustomTableViewCell.swift in Sources */,
 				B674F86F29A7E3F800AB15F3 /* MCUMovieListTableViewController.swift in Sources */,
 				B674F87129A7EDF800AB15F3 /* MovieViewController.swift in Sources */,
 				B674F87329A7EF8400AB15F3 /* Movie.swift in Sources */,
 				B685353E29A7CC9500A82D4C /* AppDelegate.swift in Sources */,
+				DDBEAFE629C0D06A0023CBF0 /* WebViewUIViewController.swift in Sources */,
 				B685354029A7CC9500A82D4C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
