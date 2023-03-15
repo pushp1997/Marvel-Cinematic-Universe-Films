@@ -10,13 +10,17 @@ import UIKit
 class MCUMovieListTableViewController: UITableViewController {
     var moviesParser = MoviesParser()
     
+    // Outlets
+    @IBOutlet var mcuMovieListTableView: UITableView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Marvel Cinematic Universe Movies List"
         moviesParser.parseMovies()
+        
+        // Disabling seperator
+        mcuMovieListTableView.separatorStyle = .none
     }
 
     // MARK: - Table view data source
@@ -38,6 +42,14 @@ class MCUMovieListTableViewController: UITableViewController {
         let movieData = moviesParser.getMovie(index: indexPath.row)
         cell.coverImageView.image = UIImage(named: movieData.cover)
         cell.title.text = movieData.title
+        
+        
+        // Styling the Row ui view to look like a card
+        cell.rowCardView.layer.cornerRadius = 10
+        cell.rowCardView.layer.shadowColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
+        cell.rowCardView.layer.shadowOffset = CGSize(width: 1.75, height: 1.75)
+        cell.rowCardView.layer.shadowRadius = 1.75
+        cell.rowCardView.layer.shadowOpacity = 0.5
 
         return cell
     }

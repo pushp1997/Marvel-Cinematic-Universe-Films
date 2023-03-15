@@ -11,5 +11,6 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var rowCardView: UIView!
 
 }
