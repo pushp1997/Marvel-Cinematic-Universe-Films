@@ -78,7 +78,20 @@
                             <outlet property="delegate" destination="oXd-KO-0kf" id="L9h-eq-IKA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="VdY-GS-41A"/>
+                    <navigationItem key="navigationItem" id="VdY-GS-41A">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Add" image="plus" catalog="system" id="G9w-uX-Yc4">
+                                <connections>
+                                    <action selector="addMovieButtonPressed:" destination="oXd-KO-0kf" id="qGj-KT-g7b"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Reset" image="gearshape.arrow.triangle.2.circlepath" catalog="system" id="eZp-3W-RJ9">
+                                <connections>
+                                    <action selector="ResetButtonPressed:" destination="oXd-KO-0kf" id="gV9-GU-6fu"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="mcuMovieListTableView" destination="i7A-nU-HAq" id="4Wg-JL-A7v"/>
                     </connections>
@@ -401,6 +414,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ant-man" width="764" height="1132"/>
+        <image name="gearshape.arrow.triangle.2.circlepath" catalog="system" width="128" height="104"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
