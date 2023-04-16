@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import CoreData
 
 class MoviesParser: NSObject, XMLParserDelegate {
-    var movies: [Movie] = []
     private var currentElement = ""
     private var currentTitle: String = "" {
         didSet {
@@ -76,7 +76,12 @@ class MoviesParser: NSObject, XMLParserDelegate {
         }
     }
 
-    
+    // MARK: - Core data objects and methods
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext;
+    var entity: NSEntityDescription!;
+    var managedMCUMoviesObject: MCUMovies!;
+    var managedFavouritesObject: Favourites!;
+
     func parseMovies() {
         // parse xml data
         if let xmlFilePath = Bundle.main.path(forResource: "mcu-movies-list", ofType: "xml") {
@@ -137,44 +142,34 @@ class MoviesParser: NSObject, XMLParserDelegate {
     // When we reach the closing tag of movie is found, this method gets called
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "movie" {
-            let movie = Movie(
-                title: currentTitle,
-                releaseDate: currentReleaseDate,
-                boxOffice: currentBoxOffice,
-                duration: currentDuration,
-                overview: currentOverview,
-                cover: currentCover,
-                trailerUrl: URL(string: currentTrailerUrl)!,
-                directedBy: currentDirectedBy,
-                phase: currentPhase,
-                saga: currentSaga,
-                chronology: currentChronology,
-                postCreditScenes: currentPostCreditScenes,
-                imdbId: currentImdbId
-            )
-            movies += [movie]
+            entity = NSEntityDescription.entity(forEntityName: "MCUMovies", in: self.context);
+            managedMCUMoviesObject = MCUMovies(entity: entity, insertInto: self.context);
+            entity = NSEntityDescription.entity(forEntityName: "Favourites", in: self.context);
+            managedFavouritesObject = Favourites(entity: entity, insertInto: self.context);
+
+            // Populating managed object with parsed fields
+            managedMCUMoviesObject.title = currentTitle
+            managedMCUMoviesObject.releaseDate = currentReleaseDate
+            managedMCUMoviesObject.boxOffice = Int64(currentBoxOffice)!
+            managedMCUMoviesObject.duration = Int64(currentDuration)!
+            managedMCUMoviesObject.overview = currentOverview
+            managedMCUMoviesObject.cover = UIImage(named: currentCover)?.jpegData(compressionQuality: 0)
+            managedMCUMoviesObject.trailerURL = currentTrailerUrl
+            managedMCUMoviesObject.directedBy = currentDirectedBy
+            managedMCUMoviesObject.phase = Int16(currentPhase)!
+            managedMCUMoviesObject.saga = currentSaga
+            managedMCUMoviesObject.chronology = Int16(currentChronology)!
+            managedMCUMoviesObject.postCreditScenes = Int16(currentPostCreditScenes)!
+            managedMCUMoviesObject.imdbID = currentImdbId
+
+            managedFavouritesObject.movie = managedMCUMoviesObject
+            
+            do {
+                try self.context.save()
+            } catch {
+              print("Could not save the data.")
+            }
         }
     }
-    
-    // MARK: - Helper methods
-    
-    func getMovie(index:Int) -> Movie{
-        return movies[index]
-    }
-    
-    func getCount() -> Int{
-        return movies.count
-    }
-    
-    func getTitles() -> [String]{
-        // make an empty array
-        var titles = [String]()
-        
-        // traverse the people data and place their names in array
-        for movieData in movies{
-            titles.append(movieData.title)
-        }
-        
-        return titles
-    }
+
 }
