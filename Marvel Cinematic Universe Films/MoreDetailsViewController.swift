@@ -9,7 +9,7 @@ import UIKit
 
 class MoreDetailsViewController: UIViewController {
     
-    var movieData: Movie!
+    var movieData: MCUMovies!
     
     // Outlets
     @IBOutlet weak var releaseDateLabel: UILabel!
@@ -25,16 +25,23 @@ class MoreDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        title = "Details: " + movieData.title
+        title = "Details: " + movieData.title!
         
         releaseDateLabel.text = movieData.releaseDate
-        phaseLabel.text = movieData.phase
+        phaseLabel.text = String(movieData.phase)
         sagaLabel.text = movieData.saga
-        boxOfficeLabel.text = movieData.boxOffice
-        durationLabel.text = movieData.duration
+        boxOfficeLabel.text = String(movieData.boxOffice)
+        durationLabel.text = String(movieData.duration)
         directedByLabel.text = movieData.directedBy
-        postCreditScenesLabel.text = movieData.postCreditScenes
+        postCreditScenesLabel.text = String(movieData.postCreditScenes)
         overviewTextView.text = movieData.overview
+
+        // Styling the details ui view to look like a card
+        overviewTextView.layer.cornerRadius = 10
+        overviewTextView.layer.shadowColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0).cgColor
+        overviewTextView.layer.shadowOffset = CGSize(width: 1.75, height: 1.75)
+        overviewTextView.layer.shadowRadius = 1.75
+        overviewTextView.layer.shadowOpacity = 0.5
     }
     
 
@@ -47,16 +54,16 @@ class MoreDetailsViewController: UIViewController {
             let destinationController = segue.destination as! WebViewUIViewController
             
             // Pass the selected object to the new view controller.
-            destinationController.link = movieData.trailerUrl
-            destinationController.title = "Trailer: \(movieData.title)"
+            destinationController.link = URL(string: movieData.trailerURL!)
+            destinationController.title = "Trailer: \(String(describing: movieData.title))"
         }
         if segue.identifier == "toIMDB"{
             // Get the new view controller using segue.destination.
             let destinationController = segue.destination as! WebViewUIViewController
             
             // Pass the selected object to the new view controller.
-            destinationController.link = URL(string: "https://www.imdb.com/title/\(movieData.imdbId)/")!
-            destinationController.title = "IMDB: \(movieData.title)"
+            destinationController.link = URL(string: "https://www.imdb.com/title/\(String(describing: movieData.imdbID))/")!
+            destinationController.title = "IMDB: \(String(describing: movieData.title))"
         }
     }
 
