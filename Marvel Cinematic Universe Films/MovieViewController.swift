@@ -9,7 +9,7 @@ import UIKit
 
 class MovieViewController: UIViewController {
     
-    var movieData: Movie!
+    var movieData: MCUMovies!
     
     // Outlets
     @IBOutlet weak var coverUIImageView: UIImageView!
@@ -25,9 +25,9 @@ class MovieViewController: UIViewController {
         title = movieData.title
         
         // Populating data on the view
-        coverUIImageView.image = UIImage(named: movieData.cover)
+        coverUIImageView.image = UIImage(data: movieData.cover!)
         releaseDateLabel.text = movieData.releaseDate
-        phaseOutlet.text = movieData.phase
+        phaseOutlet.text = String(movieData.phase)
         sagaOutlet.text = movieData.saga
         
         // Styling the details ui view to look like a card
