@@ -55,15 +55,16 @@ class MoreDetailsViewController: UIViewController {
             
             // Pass the selected object to the new view controller.
             destinationController.link = URL(string: movieData.trailerURL!)
-            destinationController.title = "Trailer: \(String(describing: movieData.title))"
+            destinationController.title = "Trailer: \(String(describing: movieData.title!))"
         }
         if segue.identifier == "toIMDB"{
             // Get the new view controller using segue.destination.
             let destinationController = segue.destination as! WebViewUIViewController
             
             // Pass the selected object to the new view controller.
-            destinationController.link = URL(string: "https://www.imdb.com/title/\(String(describing: movieData.imdbID))/")!
-            destinationController.title = "IMDB: \(String(describing: movieData.title))"
+            let url = URL(string: "https://www.imdb.com/title/\(movieData.imdbID!)/")
+            destinationController.link = url!
+            destinationController.title = "IMDB: \(String(describing: movieData.title!))"
         }
     }
 
