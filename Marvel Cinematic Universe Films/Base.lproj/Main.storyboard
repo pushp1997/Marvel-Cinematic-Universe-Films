@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nQ9-g1-lfv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nQ9-g1-lfv">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -106,7 +107,6 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Add" image="plus" catalog="system" id="G9w-uX-Yc4">
                                 <connections>
-                                    <action selector="addMovieButtonPressed:" destination="oXd-KO-0kf" id="qGj-KT-g7b"/>
                                     <segue destination="Erh-XO-ihd" kind="show" id="Opc-tr-Rjs"/>
                                 </connections>
                             </barButtonItem>
@@ -218,10 +218,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aji-P3-JlI" userLabel="Phase Text Field">
-                                        <rect key="frame" x="83" y="230" width="220" height="22"/>
+                                        <rect key="frame" x="83" y="230" width="32" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="4o1-5V-xbx"/>
-                                            <constraint firstAttribute="width" constant="220" id="kGN-qp-Sz9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -236,7 +235,6 @@
                                         <rect key="frame" x="69" y="272" width="234" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="e5a-x8-NZn"/>
-                                            <constraint firstAttribute="width" constant="234" id="mf2-NN-v38"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -251,7 +249,6 @@
                                         <rect key="frame" x="126" y="314" width="177" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="4ud-09-JVK"/>
-                                            <constraint firstAttribute="width" constant="177" id="Peq-x3-eQd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -265,7 +262,6 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q74-S6-i8O" userLabel="IMDB ID Text Field">
                                         <rect key="frame" x="95" y="356" width="208" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="208" id="Y15-G5-XWA"/>
                                             <constraint firstAttribute="height" constant="22" id="bRa-Hi-he6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -281,7 +277,6 @@
                                         <rect key="frame" x="189" y="398" width="114" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="9rP-3l-S70"/>
-                                            <constraint firstAttribute="width" constant="114" id="yhO-Xy-DtC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -293,12 +288,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cK-iR-i0q">
-                                        <rect key="frame" x="134" y="439.99999999999994" width="134" height="22"/>
+                                        <rect key="frame" x="134" y="439.99999999999994" width="169" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="iOh-L7-fUr"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Choose Image"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Choose Image"/>
                                         <connections>
                                             <action selector="imagePickerButtonPressed:" destination="Erh-XO-ihd" eventType="touchUpInside" id="oZm-Vy-zcd"/>
                                         </connections>
@@ -312,7 +307,6 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3lr-bt-zjc" userLabel="Trailer URL Text Field">
                                         <rect key="frame" x="121" y="481.99999999999994" width="182" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="182" id="P6a-rt-KAU"/>
                                             <constraint firstAttribute="height" constant="22" id="m9t-lw-sOg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -324,13 +318,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ehX-Vz-5dw">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ehX-Vz-5dw">
                                         <rect key="frame" x="107" y="524" width="196" height="119"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="196" id="3QV-Ca-6nb" userLabel="width = 196"/>
-                                            <constraint firstAttribute="height" constant="119" id="oPT-KA-hfH"/>
-                                        </constraints>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -338,10 +328,13 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WOL-7E-zJd" secondAttribute="trailing" constant="12" id="0zV-Po-luT"/>
                                     <constraint firstItem="WOL-7E-zJd" firstAttribute="top" secondItem="aji-P3-JlI" secondAttribute="bottom" constant="20" id="1wU-Ef-Zpt"/>
                                     <constraint firstItem="NeV-Xh-Dda" firstAttribute="leading" secondItem="rY7-5W-6oU" secondAttribute="trailing" constant="10" id="1yC-WM-dUb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ztl-gI-KVe" secondAttribute="trailing" constant="12" id="2RU-iC-h7U"/>
                                     <constraint firstItem="1Rz-Ap-kY8" firstAttribute="leading" secondItem="CRo-Mp-w67" secondAttribute="trailing" constant="10" id="3B1-ck-aSd"/>
                                     <constraint firstItem="TWA-3X-RXp" firstAttribute="top" secondItem="1Rz-Ap-kY8" secondAttribute="bottom" constant="20" id="3Ce-xk-r6j"/>
+                                    <constraint firstAttribute="bottom" secondItem="ehX-Vz-5dw" secondAttribute="bottom" constant="12" id="3PB-Lb-F0a"/>
                                     <constraint firstItem="WOL-7E-zJd" firstAttribute="leading" secondItem="58D-WK-Kmt" secondAttribute="trailing" constant="10" id="5iQ-Lp-ldG"/>
                                     <constraint firstItem="ZcX-6P-M44" firstAttribute="top" secondItem="no0-wz-pEV" secondAttribute="bottom" constant="20" id="5rB-Nn-dRN"/>
                                     <constraint firstItem="1Rz-Ap-kY8" firstAttribute="top" secondItem="NeV-Xh-Dda" secondAttribute="bottom" constant="20" id="6g5-G9-K89"/>
@@ -354,6 +347,7 @@
                                     <constraint firstItem="no0-wz-pEV" firstAttribute="top" secondItem="P6J-PW-9JW" secondAttribute="bottom" constant="20" id="CZw-8e-e8S"/>
                                     <constraint firstItem="no0-wz-pEV" firstAttribute="leading" secondItem="bQW-no-rMF" secondAttribute="leading" constant="10" id="EZM-mn-No9"/>
                                     <constraint firstItem="tL3-tE-AP9" firstAttribute="leading" secondItem="bQW-no-rMF" secondAttribute="leading" constant="10" id="EiU-83-snd" userLabel="Duration:.leading = Info Collection Card.leading + 10"/>
+                                    <constraint firstAttribute="trailing" secondItem="aji-P3-JlI" secondAttribute="trailing" constant="12" id="EzT-sA-7PF"/>
                                     <constraint firstItem="ehX-Vz-5dw" firstAttribute="top" secondItem="3lr-bt-zjc" secondAttribute="bottom" constant="20" id="Gvs-uR-Ow0"/>
                                     <constraint firstItem="sYz-BM-rIZ" firstAttribute="leading" secondItem="tL3-tE-AP9" secondAttribute="trailing" constant="10" id="GxR-4n-uMi"/>
                                     <constraint firstItem="P6J-PW-9JW" firstAttribute="leading" secondItem="bQW-no-rMF" secondAttribute="leading" constant="10" id="H2q-pc-P1F" userLabel="Post Credit Scenes:.leading = Info Collection Card.leading + 10"/>
@@ -367,6 +361,7 @@
                                     <constraint firstItem="CRo-Mp-w67" firstAttribute="top" secondItem="rY7-5W-6oU" secondAttribute="bottom" constant="20" id="NIG-D3-J49"/>
                                     <constraint firstAttribute="height" constant="655" id="Nlu-3S-L3u"/>
                                     <constraint firstItem="58D-WK-Kmt" firstAttribute="top" secondItem="G5g-zK-alN" secondAttribute="bottom" constant="20" id="OGs-AC-qei"/>
+                                    <constraint firstAttribute="trailing" secondItem="3cK-iR-i0q" secondAttribute="trailing" constant="12" id="PA3-Le-Bvi"/>
                                     <constraint firstItem="jer-sw-Mue" firstAttribute="leading" secondItem="bQW-no-rMF" secondAttribute="leading" constant="10" id="Q89-xk-IL7" userLabel="Overview:.leading = Info Collection Card.leading + 10"/>
                                     <constraint firstItem="P2C-Ah-ZVY" firstAttribute="leading" secondItem="bQW-no-rMF" secondAttribute="leading" constant="10" id="SNn-4G-ok3" userLabel="Chronology:.leading = Info Collection Card.leading + 10"/>
                                     <constraint firstItem="TWA-3X-RXp" firstAttribute="leading" secondItem="cA8-t3-Dvf" secondAttribute="trailing" constant="10" id="UlU-g7-HrL"/>
@@ -378,12 +373,15 @@
                                     <constraint firstItem="cA8-t3-Dvf" firstAttribute="top" secondItem="CRo-Mp-w67" secondAttribute="bottom" constant="20" id="a9N-nR-zMt"/>
                                     <constraint firstItem="Ztl-gI-KVe" firstAttribute="leading" secondItem="P6J-PW-9JW" secondAttribute="trailing" constant="10" id="czU-X7-B5W"/>
                                     <constraint firstItem="jer-sw-Mue" firstAttribute="top" secondItem="ZcX-6P-M44" secondAttribute="bottom" constant="20" id="di5-0e-zQ1"/>
+                                    <constraint firstAttribute="trailing" secondItem="ehX-Vz-5dw" secondAttribute="trailing" constant="12" id="gSB-LH-cZ7"/>
                                     <constraint firstItem="w3j-LS-VY0" firstAttribute="leading" secondItem="kYj-l9-UYc" secondAttribute="trailing" constant="10" id="gW3-nD-O5O"/>
                                     <constraint firstItem="3lr-bt-zjc" firstAttribute="leading" secondItem="ZcX-6P-M44" secondAttribute="trailing" constant="10" id="hak-L8-dLL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q74-S6-i8O" secondAttribute="trailing" constant="12" id="hv4-xd-S4j"/>
                                     <constraint firstItem="58D-WK-Kmt" firstAttribute="leading" secondItem="bQW-no-rMF" secondAttribute="leading" constant="10" id="j2v-6e-dQu" userLabel="Saga:.leading = Info Collection Card.leading + 10"/>
                                     <constraint firstItem="cA8-t3-Dvf" firstAttribute="leading" secondItem="bQW-no-rMF" secondAttribute="leading" constant="10" id="lTB-gV-YMb" userLabel="Box Office:.leading = Info Collection Card.leading + 10"/>
                                     <constraint firstItem="Ztl-gI-KVe" firstAttribute="top" secondItem="Q74-S6-i8O" secondAttribute="bottom" constant="20" id="m72-n3-3Ni"/>
                                     <constraint firstItem="aji-P3-JlI" firstAttribute="top" secondItem="w3j-LS-VY0" secondAttribute="bottom" constant="20" id="mNJ-NE-7HU"/>
+                                    <constraint firstAttribute="trailing" secondItem="1B0-TC-M7P" secondAttribute="trailing" constant="12" id="nw1-0g-445"/>
                                     <constraint firstItem="w3j-LS-VY0" firstAttribute="top" secondItem="sYz-BM-rIZ" secondAttribute="bottom" constant="20" id="peN-C0-ot1"/>
                                     <constraint firstItem="P2C-Ah-ZVY" firstAttribute="top" secondItem="58D-WK-Kmt" secondAttribute="bottom" constant="20" id="q5e-0g-FOf"/>
                                     <constraint firstItem="rY7-5W-6oU" firstAttribute="leading" secondItem="bQW-no-rMF" secondAttribute="leading" constant="10" id="rHU-0Z-fPP" userLabel="Title:.leading = Info Collection Card.leading + 10"/>
@@ -392,6 +390,7 @@
                                     <constraint firstItem="kYj-l9-UYc" firstAttribute="top" secondItem="tL3-tE-AP9" secondAttribute="bottom" constant="20" id="ufT-og-qjh"/>
                                     <constraint firstItem="3cK-iR-i0q" firstAttribute="top" secondItem="P6J-PW-9JW" secondAttribute="bottom" constant="20" id="vPJ-D2-BnV"/>
                                     <constraint firstItem="tL3-tE-AP9" firstAttribute="top" secondItem="cA8-t3-Dvf" secondAttribute="bottom" constant="20" id="yCG-c0-HJv"/>
+                                    <constraint firstAttribute="trailing" secondItem="3lr-bt-zjc" secondAttribute="trailing" constant="12" id="yJZ-MN-wKk"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -742,7 +741,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Jxd-gS-9gi"/>
-        <segue reference="3RO-62-VKx"/>
+        <segue reference="Opc-tr-Rjs"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ant-man" width="764" height="1132"/>

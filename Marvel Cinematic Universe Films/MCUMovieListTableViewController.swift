@@ -25,9 +25,6 @@ class MCUMovieListTableViewController: UITableViewController, NSFetchedResultsCo
 
     // MARK: - Actions
 
-    @IBAction func addMovieButtonPressed(_ sender: Any) {
-    }
-
     @IBAction func ResetButtonPressed(_ sender: Any) {
         // Create Alert to confirm action
         let alert = UIAlertController(title: "Reset Data", message: "Are you sure you want to restore the app? This effectively truncates all the changes made yet and repopulates data from the XML to Core Data.", preferredStyle: .alert)
@@ -104,8 +101,7 @@ class MCUMovieListTableViewController: UITableViewController, NSFetchedResultsCo
     @IBAction func favouriteButtonInsideCell(_ sender: UIButton) {
         // Getting the index path of the cell that the favourite button resides in
         guard
-            let button = sender as? UIView,
-            let cell = button.nearestAncestor(ofType: UITableViewCell.self),
+            let cell = sender.nearestAncestor(ofType: UITableViewCell.self),
             let tableView = cell.nearestAncestor(ofType: UITableView.self),
             let indexPath = tableView.indexPath(for: cell)
             else { return }
@@ -132,8 +128,7 @@ class MCUMovieListTableViewController: UITableViewController, NSFetchedResultsCo
     @IBAction func editButtonInsideCell(_ sender: UIButton) {
         // Getting the index path of the cell that the edit button resides in
         guard
-            let button = sender as? UIView,
-            let cell = button.nearestAncestor(ofType: UITableViewCell.self),
+            let cell = sender.nearestAncestor(ofType: UITableViewCell.self),
             let tableView = cell.nearestAncestor(ofType: UITableView.self),
             let indexPath = tableView.indexPath(for: cell)
             else { return }
