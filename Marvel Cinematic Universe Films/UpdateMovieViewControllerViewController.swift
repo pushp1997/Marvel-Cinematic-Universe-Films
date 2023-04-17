@@ -78,6 +78,8 @@ class UpdateMovieViewControllerViewController: UIViewController, UIImagePickerCo
         } catch {
             print("Could not update the data")
         }
+        
+        navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
