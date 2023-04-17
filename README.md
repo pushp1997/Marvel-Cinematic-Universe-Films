@@ -1,8 +1,9 @@
 # Marvel Cinematic Universe (MCU) Movies App
 
 This is an iPhone app that displays information about the Marvel Cinematic Universe (MCU) movies.
-The app has four screens, each with a specific function.
-The data for the movies is read from an XML file and managed by a model data class called Movie and a parser class called MoviesParser.
+The app has five = screens, each with a specific function.
+The data for the movies is read from Core Data which can initially be populated by XML file included in the package using a parser class called MoviesParser.
+The Core Data has two entities MCUMovies (to store all the movies and their data) and Favourites (to add a movie to favourite or to like a movie), both the entities have a one to one relationship.
 
 ## Technical Details:
 * Developed using Xcode 12.0
@@ -15,6 +16,9 @@ The data for the movies is read from an XML file and managed by a model data cla
 * Displays a list of all the MCU movies, this UITableViewController uses a custom cell developed called CustomTableViewCell.
 * Each cell appears like a card with shadows and rounded corners.
 * Tapping on a movie takes the user to Screen 2
+* Each cell has two buttons on it, the button with pencil icon (to be used to edit / update the movie details) and a button with heart icon (to be used to add a movie to favourites).
+* Each cell can be swiped from right to left to perform delete operation on that particular movie.
+* Initially, this view wont display any data as movies have not been added to the core data, so the user can either add the movie by clicking on the "+" icon at top right corner on the navigation controller or by pressing the reset button which is immediately left to the "+" button. The reset button parses the XML file and populates the data into Core Data.
 
 ### Screen 2 - UIViewController:
 * Displays the cover image of the selected movie
@@ -30,16 +34,10 @@ The data for the movies is read from an XML file and managed by a model data cla
 * If "Watch Trailer" is pressed, it displays the trailer for the selected movie
 * If "Read More on IMDB" is pressed, it displays the IMDB page for the selected movie
 
-## Data Management:
-
-* The Movie model data class represents information about each movie
-* The MoviesParser parser class reads the data from an XML file in the app bundle and creates instances of the Movie class
-* The parsed data is stored in an array for easy access by the rest of the app
-
-## Future Improvements:
-
-* Add search functionality to Screen 1 to allow users to quickly find a specific movie
-* Use Core Data instead of an XML file for better data management and scalability
+### Screen 5 - UIViewController:
+* These screen displayed when the user wants to add a new movie to the DB or when the user wants to edit / update an existing movie.
+* Displays a for with various fields related to the movie data.
+* When the user has completed the form, the save button can be pressed to save the desired changes to the DB.
 
 ## References:
 
